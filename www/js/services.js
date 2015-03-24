@@ -53,10 +53,9 @@ angular.module('starter.services', [])
 
   var events = [];
 
-  $http.get('http://localhost:3000/events.json')
+  $http({method: 'GET', url: 'http://localhost:3000/api/events', headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ'}})
     .success(function(data){
       events = data;
-      // $rootScope.$apply();
     });
 
 
