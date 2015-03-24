@@ -13,11 +13,11 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('EventsCtrl', function($scope, Events) {
-  $scope.events = Events.all();
+.controller('EventsCtrl', function($scope, $http, Events) {
+  $scope.events = Events.all;
   $scope.remove = function(event) {
     Events.remove(event);
-  }
+  };
 })
 
 .controller('EventDetailCtrl', function($scope, $stateParams, Events) {

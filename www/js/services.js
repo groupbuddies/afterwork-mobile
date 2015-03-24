@@ -49,25 +49,20 @@ angular.module('starter.services', [])
   };
 })
 
-.factory('Events', function(){
+.factory('Events', function($http, $rootScope){
 
-  var events = [{
-    id: 0,
-    name: 'Ruby-cenas',
-    location: 'Braga',
-    hashtag: '#rubycenas',
-    description: 'Teste da cena'
-  }, {
-    id: 1,
-    name: 'JS-cenas',
-    location: 'Braga',
-    hashtag: '#JScenas',
-    description: 'Teste da cenas 2'
-  }];
+  var events = [];
+
+  $http.get('http://localhost:3000/events.json')
+    .success(function(data){
+      events = data;
+      // $rootScope.$apply();
+    });
+
 
   return {
     all: function(){
-      return events;
+        return events;
     },
     remove: function(event) {
       events.splice(events.indexOf(event), 1);
