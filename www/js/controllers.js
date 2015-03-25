@@ -16,13 +16,11 @@ angular.module('starter.controllers', [])
     $scope.isAttending = Events.isAttending;
   });
 
-  .controller('SignInCtrl', function($scope, $window, localStorageService, $rootScope) {
+  .controller('SettingsCtrl', function($scope, $window, CurrentUser) {
     $scope.signInWithTwitter = function() {
       $window.addEventListener('message', function(e) {
-        if (e.origin === "http://localhost:3000") {
-          localStorageService.set('accessToken', e.data);
-          $rootScope.$emit('access_token');
-        }
+        if (e.origin === "http://localhost:3000")
+          CurrentUser.accessToken(e.data);
       }, false);
 
       $window.open(
@@ -31,4 +29,6 @@ angular.module('starter.controllers', [])
         "height=400, width=550, status=yes, toolbar=no, menubar=no, location=no,addressbar=no"
       );
     };
+
+    $scope.currentUser = CurrentUser.user;
   });
