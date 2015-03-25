@@ -45,6 +45,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           templateUrl: 'templates/tab-events.html',
           controller: 'EventsCtrl'
         }
+      },
+      resolve: {
+        events: function (Events) {
+          return Events.fetch().then(function () {
+            return Events.all();
+          })
+        }
       }
     })
     .state('tab.event-detail',{
@@ -53,6 +60,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         'tab-events': {
           templateUrl: 'templates/event-detail.html',
           controller: 'EventDetailCtrl'
+        }
+      },
+      resolve: {
+        events: function (Events) {
+          return Events.fetch().then(function () {
+            return Events.all();
+          })
         }
       }
     })

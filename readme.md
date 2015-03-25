@@ -3,7 +3,7 @@
 Mobile application to consume afterwork api.
 
 ## Getting started
-Clone this repository `git clone git@github.com:groupbuddies/afterwork-mobile.git`
+Clone the repository `git clone git@github.com:groupbuddies/afterwork-mobile.git`
 
 Install *cordova ionic*
 

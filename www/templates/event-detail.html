@@ -1,16 +1,16 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{event.name}}">
+<ion-view view-title="{{event().name}}">
   <ion-content class="padding">
     <h1>
-      {{event.hashtag}}
+      {{event().hashtag}}
     </h1>
     <p>
-      {{event.description}}
+      {{event().description}}
     </p>
-  </ion-content>
+
+    <div ng-show="!isAttending(event().id, 2)">
+      <button class="button" ng-click="attend(event().id)">Attending</button>
+    </div>
+    <div ng-show="isAttending(event().id, 2)">
+      <button class="button" ng-click="cancelAttend(event().id)">Cancel Attending</button>
+    </div>
 </ion-view>
