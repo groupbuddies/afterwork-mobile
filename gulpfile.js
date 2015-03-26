@@ -5,7 +5,10 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
+var ngConfig = require('gulp-ng-config');
 var sh = require('shelljs');
+
+global.env = 'dev';
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -24,6 +27,23 @@ gulp.task('sass', function(done) {
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
+
+gulp.task('constants', function() {
+  var constants = require('./config/env-constants.json')[global.env];
+
+  return gulp.src('./config/constants.json')
+    .pipe(ngConfig('starter.constants', {
+      wrap: true,
+      constants: constants
+    }))
+    .pipe(gulp.dest('www/js'));
+});
+
+gulp.task('makeProduction', function() {
+  global.env = 'prod';
+});
+
+gulp.task('constants-prod', ['makeProduction', 'constants']);
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);

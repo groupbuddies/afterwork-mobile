@@ -1,4 +1,5 @@
 {
   "name": "afterwork",
-  "app_id": ""
+  "app_id": "com.groupbuddies.afterwork",
+  "gulpStartupTasks": ["constants"]
 }
