@@ -66,6 +66,15 @@
             controller: 'SettingsCtrl'
           }
         }
+      })
+      .state('tab.event-new', {
+        url: '/events/new',
+        views: {
+          'tab-events': {
+            templateUrl: 'templates/event-new.html',
+            controller: 'EventNewCtrl'
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/tab/events');
