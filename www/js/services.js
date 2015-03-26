@@ -1,7 +1,6 @@
 (function() {
   angular.module('starter.services', ['starter.constants'])
     .factory('Events', function ($http, CurrentUser, HOST) {
-
       'use strict';
       var events = [];
 
@@ -26,10 +25,11 @@
       }
 
       function fetch () {
+        var token = CurrentUser.accessToken();
         var getEvents = {
           method: 'GET',
           url: HOST + '/api/events',
-          headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ' }
+          headers: { 'Authorization' : 'Token token='+token }
         };
 
         return $http(getEvents)
@@ -56,20 +56,22 @@
           return null;
         },
         attend: function (eventId) {
+          var token = CurrentUser.accessToken();
           return $http({
             method: 'POST',
             url: HOST + '/api/events/' + eventId + '/attend',
-            headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ'}
+            headers: { 'Authorization' : 'Token token='+token}
           })
             .success(function () {
               return fetch();
             });
         },
         cancelAttend: function (eventId) {
+          var token = CurrentUser.accessToken();
           return $http({
             method: 'DELETE',
             url: HOST + '/api/events/' + eventId + '/cancel_attend',
-            headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ'}
+            headers: { 'Authorization' : 'Token token='+token}
           })
             .success(function () {
               return fetch();
