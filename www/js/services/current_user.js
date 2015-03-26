@@ -2,7 +2,7 @@ angular
   .module('starter.services')
   .service('CurrentUser', CurrentUser);
 
-function CurrentUser(localStorageService, $rootScope, $http) {
+function CurrentUser(localStorageService, $rootScope, $http, HOST) {
   var _accessToken,
       _user;
 
@@ -36,7 +36,7 @@ function CurrentUser(localStorageService, $rootScope, $http) {
   function updateUser() {
     var options = {
       method: 'GET',
-      url: 'http://localhost:3000/api/me',
+      url: HOST + '/api/me',
       headers: {
         Authorization: 'Token token=' + _accessToken
       }

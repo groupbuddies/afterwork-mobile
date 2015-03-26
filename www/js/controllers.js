@@ -8,25 +8,26 @@ angular.module('starter.controllers', [])
     };
   })
 
-  .controller('EventDetailCtrl', function ($scope, $stateParams, Events, events) {
+  .controller('EventDetailCtrl', function ($scope, $stateParams, Events) {
     'use strict';
     $scope.event = function () { return Events.get($stateParams.eventId); };
     $scope.attend = Events.attend;
     $scope.cancelAttend = Events.cancelAttend;
     $scope.isAttending = Events.isAttending;
-  });
+  })
 
   .controller('SettingsCtrl', function($scope, $window, CurrentUser) {
-    $scope.signInWithTwitter = function() {
-      $window.addEventListener('message', function(e) {
-        if (e.origin === "http://localhost:3000")
+    'use strict';
+    $scope.signInWithTwitter = function () {
+      $window.addEventListener('message', function (e) {
+        if ( e.origin === 'http://localhost:3000' )
           CurrentUser.accessToken(e.data);
       }, false);
 
       $window.open(
-        "http://localhost:3000/users/auth/twitter?type=cordova",
-        "_blank",
-        "height=400, width=550, status=yes, toolbar=no, menubar=no, location=no,addressbar=no"
+        'http://localhost:3000/users/auth/twitter?type=cordova',
+        '_blank',
+        'height=400, width=550, status=yes, toolbar=no, menubar=no, location=no,addressbar=no'
       );
     };
 

@@ -1,5 +1,5 @@
 angular.module('starter.services', [])
-  .factory('Events', function ($http) {
+  .factory('Events', function ($http, CurrentUser, HOST) {
 
     'use strict';
     var events = [];
@@ -27,7 +27,7 @@ angular.module('starter.services', [])
     function fetch () {
       var getEvents = {
         method: 'GET',
-        url: 'http://localhost:3000/api/events',
+        url: HOST + '/api/events',
         headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ' }
       };
 
@@ -57,7 +57,7 @@ angular.module('starter.services', [])
       attend: function (eventId) {
         return $http({
           method: 'POST',
-          url: 'http://localhost:3000/api/events/' + eventId + '/attend',
+          url: HOST + '/api/events/' + eventId + '/attend',
           headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ'}
         })
           .success(function () {
@@ -67,15 +67,19 @@ angular.module('starter.services', [])
       cancelAttend: function (eventId) {
         return $http({
           method: 'DELETE',
-          url: 'http://localhost:3000/api/events/' + eventId + '/cancel_attend',
+          url: HOST + '/api/events/' + eventId + '/cancel_attend',
           headers: { 'Authorization' : 'Token token=Trrk2sF0aBBUL9B05lBurQ'}
         })
           .success(function () {
             return fetch();
           });
       },
-      isAttending: function (eventId, userId) {
-        return attendee(eventId, userId);
+      isAttending: function (eventId) {
+        var user = CurrentUser.user();
+        if (user)
+          return attendee(eventId, user.id);
+        else
+          return false;
       }
     };
   });

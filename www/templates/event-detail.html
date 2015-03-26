@@ -7,10 +7,10 @@
       {{event().description}}
     </p>
 
-    <div ng-show="!isAttending(event().id, 2)">
+    <div ng-show="!isAttending(event().id)">
       <button class="button" ng-click="attend(event().id)">Attending</button>
     </div>
-    <div ng-show="isAttending(event().id, 2)">
+    <div ng-show="isAttending(event().id)">
       <button class="button" ng-click="cancelAttend(event().id)">Cancel Attending</button>
     </div>
 </ion-view>
