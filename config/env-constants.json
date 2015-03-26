@@ -3,6 +3,6 @@
     "HOST": "http://localhost:3000"
   },
   "prod": {
-    "HOST": "https://glacial-reaches-5249.heroku.com"
+    "HOST": "http://glacial-reaches-5249.herokuapp.com/"
   }
 }
