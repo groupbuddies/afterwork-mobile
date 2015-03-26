@@ -2,10 +2,9 @@ angular.module('starter', [
   'ionic',
   'starter.controllers',
   'starter.services',
+  'starter.constants',
   'LocalStorageModule'
 ])
-
-.constant('HOST', 'http://localhost:3000')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

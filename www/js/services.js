@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['starter.constants'])
   .factory('Events', function ($http, CurrentUser, HOST) {
 
     'use strict';
