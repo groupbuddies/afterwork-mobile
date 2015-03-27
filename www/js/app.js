@@ -4,7 +4,8 @@
     'starter.controllers',
     'starter.services',
     'starter.constants',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'ngCordova'
   ])
 
   .run(function($ionicPlatform) {
