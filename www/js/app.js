@@ -58,6 +58,15 @@
           }
         }
       })
+      .state('tab.event-new', {
+        url: '/events/new',
+        views: {
+          'tab-events': {
+            templateUrl: 'templates/event-new.html',
+            controller: 'EventNewCtrl'
+          }
+        }
+      })
       .state('tab.settings',{
         url: '/settings',
         views: {
@@ -67,12 +76,28 @@
           }
         }
       })
-      .state('tab.event-new', {
-        url: '/events/new',
+      .state('tab.availabilities', {
+        url:('/availabilities'),
         views: {
-          'tab-events': {
-            templateUrl: 'templates/event-new.html',
-            controller: 'EventNewCtrl'
+          'tab-settings': {
+            templateUrl: 'templates/availabilities.html',
+            controller: 'AvailabilityCtrl as ctrl'
+          }
+        },
+        resolve: {
+          availabilities: function (Availabilities) {
+            return Availabilities.fetch().then(function () {
+              return Availabilities.all();
+            })
+          }
+        }
+      })
+      .state('tab.availability-new', {
+        url: '/availabilities/new',
+        views: {
+          'tab-settings' :{
+            templateUrl: 'templates/availability-new.html',
+            controller: 'AvailabilityNewCtrl'
           }
         }
       });

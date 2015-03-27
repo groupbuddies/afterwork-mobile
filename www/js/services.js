@@ -78,10 +78,10 @@
             },
             headers: { 'Authorization' : 'Token token=' + token }
           })
-          .success(function () {
+          .success(function (event) {
+            events.push(event);
             console.log('successfully created!');
             $state.go('tab.events');
-            // return fetch();
           })
           .error(function (){
             console.log('Error');
@@ -125,6 +125,71 @@
           };
 
           return $http(getEvents);
+        }
+      };
+    })
+
+    .factory('Availabilities', function ($http, CurrentUser, HOST, $state) {
+      'use strict';
+      var availabilities = [];
+
+      function fetch () {
+        var token = CurrentUser.accessToken();
+        var getAvailabilities = {
+          method: 'GET',
+          url: HOST + '/api/availabilities',
+          headers: { 'Authorization' : 'Token token='+ token }
+        };
+
+        return $http(getAvailabilities)
+          .success(function (data) {
+            availabilities = data;
+          });
+      }
+
+      return {
+        fetch: fetch,
+        all: function () {
+          return availabilities;
+        },
+        remove: function (availability) {
+          var token = CurrentUser.accessToken();
+          availabilities.splice(availabilities.indexOf(availability), 1);
+          return $http({
+            method: 'DELETE',
+            url: HOST + '/api/availabilities/' +availability.id,
+            headers: { 'Authorization' : 'Token token='+token }
+          });
+        },
+        create: function (availability) {
+          var token = CurrentUser.accessToken();
+          return $http({
+            method: 'POST',
+            url: HOST + '/api/availabilities/',
+            params: {
+              week_day: availability.weekDay,
+              start_time: availability.startTime,
+              end_time: availability.endTime,
+            },
+            headers: { 'Authorization' : 'Token token=' + token }
+          })
+          .success(function (availability) {
+            availabilities.push(availability);
+            console.log('availability successfully created!');
+            $state.go('tab.settings');
+          })
+          .error(function (){
+            console.log('Error');
+          });
+        },
+        hasAvailability: function(day) {
+          var i;
+          for(i=0; i<availabilities.length; i++){
+            if (availabilities[i].week_day === day) {
+              return true;
+            }
+          }
+          return false;
         }
       };
     });

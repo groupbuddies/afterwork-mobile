@@ -25,15 +25,41 @@
       $scope.isAttending = Events.isAttending;
     })
 
-    .controller('SettingsCtrl', function($scope, Authentication, CurrentUser, HOST) {
-      $scope.signInWithTwitter = Authentication.open;
-      $scope.currentUser = CurrentUser.user;
-    })
-
     .controller('EventNewCtrl', function ($scope, Events) {
       $scope.createEvent = function (event) {
         var newEvent = Events.create(event);
-        console.log(newEvent);
+      };
+    })
+
+    .controller('SettingsCtrl', function($scope, Authentication, CurrentUser, HOST) {
+      $scope.signInWithTwitter = Authentication.open;
+
+      $scope.currentUser = CurrentUser.user;
+
+      $scope.signOut = function () {
+        localStorage.removeItem('ls.accessToken');
+        $state.go('tab.events');
+      };
+    })
+
+    .controller('AvailabilityCtrl', function(Availabilities) {
+      this.availabilities = Availabilities.all();
+      this.dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      this.days = [1,2,3,4,5,6,7];
+
+      this.remove = function (availability) {
+        Availabilities.remove(availability)
+      };
+
+      this.hasAvailability = function(day){
+        return Availabilities.hasAvailability(day);
+      };
+    })
+
+    .controller('AvailabilityNewCtrl', function($scope, Availabilities){
+      $scope.createAvailability = function(availability) {
+        var newAvailability = Availabilities.create(availability);
       };
     });
+
 })();

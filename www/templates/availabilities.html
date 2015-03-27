@@ -1,0 +1,24 @@
+<ion-view view-title="Availabilities">
+  <ion-content>
+    <div class="card" ng-repeat="day in ctrl.days">
+      <div class="item item-divider">
+        {{ctrl.dayNames[day - 1]}}
+      </div>
+
+      <div class="item item-text-wrap">
+        <div ng-show="!ctrl.hasAvailability(day)">
+          <div class="button" ui-sref="tab.availability-new"> + </div>
+        </div>
+
+        <div ng-repeat="availability in ctrl.availabilities">
+          <div ng-show="availability.week_day === day">
+            <p>{{availability.start_time}} - {{availability.end_time}}</p>
+            <div class="button" ng-click="ctrl.remove(availability)">
+              Delete
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

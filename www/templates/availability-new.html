@@ -1,0 +1,26 @@
+<div class="modal">
+  <ion-content>
+    <form ng-submit="createAvailability(availability)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="number" placeholder="Week day" ng-model="availability.weekDay" required>
+        </label>
+
+        <label class="item item-input">
+          <input type="date" ng-model="availability.startTime">
+        </label>
+
+        <label class="item item-input">
+          <input type="date" ng-model="availability.endTime">
+        </label>
+
+        <div class="padding">
+          <button type="submit" class="button">Create Availabity</button>
+        </div>
+
+        <div class="padding">
+          <button class="button" ng-click="cancelCreateAvailability()"> Cancel </button>
+        </div>
+      </form>
+  </ion-content>
+</div>
