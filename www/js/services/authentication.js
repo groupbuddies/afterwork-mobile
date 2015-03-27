@@ -38,12 +38,14 @@
         'location=yes'
       );
 
-      childWindow.addEventListener('loadstop', exitHandler, false);
+      var loop;
 
-      function exitHandler() {
-        childWindow.executeScript({ code: 'localStorage.setItem( "accessToken", "" );' });
+      childWindow.addEventListener('loadstart', function() {
+        clearInterval(loop);
+      });
 
-        var loop = setInterval(function() {
+      childWindow.addEventListener('loadstop', function() {
+        loop = setInterval(function() {
           childWindow.executeScript({
             code: 'localStorage.getItem("accessToken")'
           }, callback);
@@ -55,8 +57,8 @@
               childWindow.close();
             }
           }
-        });
-      }
+        }, 500);
+      });
     }
   }
 })();
