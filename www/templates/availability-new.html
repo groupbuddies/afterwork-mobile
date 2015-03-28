@@ -2,16 +2,21 @@
   <ion-content>
     <form name="newAvailabilityForm" ng-submit="createAvailability(availability)">
       <div class="list">
+
+        <span class="error" ng-show="newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue">Check your dates</span>
+
         <label class="item item-input">
-          <input type="datetime" name="startTime" placeholder="e.g. 17:30" ng-model="availability.startTime" required>
+          <span class="input-label">Start Time</span>
+          <input name="startTime" type="time" placeholder="start tme" ng-model="availability.startTime" required>
         </label>
 
         <label class="item item-input">
-          <input type="datetime" name="endTime" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
+          <span class="input-label">End time</span>
+          <input name="endTime" type="time" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
         </label>
 
         <div class="padding">
-          <button type="submit" class="button" ng-disabled="newAvailabilityForm.startTime.$invalid || newAvailabilityForm.endTime.$invalid" >Create Availabity</button>
+          <button type="submit" class="button" ng-disabled="newAvailabilityForm.startTime.$invalid || newAvailabilityForm.endTime.$invalid || newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue">Create Availabity</button>
         </div>
 
         <div class="padding">
