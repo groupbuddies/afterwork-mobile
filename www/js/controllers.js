@@ -3,7 +3,7 @@
 
   angular.module('starter.controllers', [])
 
-    .controller('EventsCtrl', function ($scope, Events, events) {
+    .controller('EventsCtrl', function ($scope, Events, events, $state) {
       $scope.events = events;
       $scope.onRefresh = function() {
         Events.onRefresh()
@@ -14,24 +14,35 @@
             $scope.$broadcast('scroll.refreshComplete');
           });
       };
-      $scope.createEvent = function () { $state.go('tab.event-new'); };
-      $scope.remove = function (event) { Events.remove(event); };
+
+      $scope.createEvent = function () {
+        $state.go('tab.event-new');
+      };
+
+      $scope.remove = function (event) {
+        Events.remove(event);
+      };
     })
 
     .controller('EventDetailCtrl', function ($scope, $stateParams, Events) {
-      $scope.event = function () { return Events.get($stateParams.eventId); };
+      $scope.event = function () {
+        return Events.get($stateParams.eventId);
+      };
+
       $scope.attend = Events.attend;
+
       $scope.cancelAttend = Events.cancelAttend;
+
       $scope.isAttending = Events.isAttending;
     })
 
     .controller('EventNewCtrl', function ($scope, Events) {
       $scope.createEvent = function (event) {
-        var newEvent = Events.create(event);
+        Events.create(event);
       };
     })
 
-    .controller('SettingsCtrl', function($scope, Authentication, CurrentUser, HOST) {
+    .controller('SettingsCtrl', function($scope, Authentication, CurrentUser, $state) {
       $scope.signInWithTwitter = Authentication.open;
 
       $scope.currentUser = CurrentUser.user;
@@ -44,11 +55,20 @@
 
     .controller('AvailabilityCtrl', function(Availabilities) {
       this.availabilities = Availabilities.all();
-      this.dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      this.dayNames = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+        ];
+
       this.days = [1,2,3,4,5,6,7];
 
       this.remove = function (availability) {
-        Availabilities.remove(availability)
+        Availabilities.remove(availability);
       };
 
       this.hasAvailability = function(day){
@@ -56,9 +76,10 @@
       };
     })
 
-    .controller('AvailabilityNewCtrl', function($scope, Availabilities){
+    .controller('AvailabilityNewCtrl', function($scope, Availabilities, $stateParams){
+
       $scope.createAvailability = function(availability) {
-        var newAvailability = Availabilities.create(availability);
+        Availabilities.create(availability, $stateParams.weekDay);
       };
     });
 

@@ -1,7 +1,6 @@
 (function() {
   angular.module('starter.services', ['starter.constants'])
     .factory('Events', function ($http, CurrentUser, HOST, $state) {
-      'use strict';
       var events = [];
 
       function attendee (eventId, userId) {
@@ -161,13 +160,14 @@
             headers: { 'Authorization' : 'Token token='+token }
           });
         },
-        create: function (availability) {
+        create: function (availability, weekDay) {
           var token = CurrentUser.accessToken();
+
           return $http({
             method: 'POST',
             url: HOST + '/api/availabilities/',
             params: {
-              week_day: availability.weekDay,
+              week_day: weekDay,
               start_time: availability.startTime,
               end_time: availability.endTime,
             },

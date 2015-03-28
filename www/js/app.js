@@ -22,9 +22,9 @@
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('tab', {
-        url: "/tab",
+        url: '/tab',
         abstract: true,
-        templateUrl: "templates/tabs.html"
+        templateUrl: 'templates/tabs.html'
       })
       .state('tab.events', {
         url: '/events',
@@ -38,7 +38,7 @@
           events: function (Events) {
             return Events.fetch().then(function () {
               return Events.all();
-            })
+            });
           }
         }
       })
@@ -54,7 +54,7 @@
           events: function (Events) {
             return Events.fetch().then(function () {
               return Events.all();
-            })
+            });
           }
         }
       })
@@ -88,12 +88,12 @@
           availabilities: function (Availabilities) {
             return Availabilities.fetch().then(function () {
               return Availabilities.all();
-            })
+            });
           }
         }
       })
       .state('tab.availability-new', {
-        url: '/availabilities/new',
+        url: '/availabilities/:weekDay/new',
         views: {
           'tab-settings' :{
             templateUrl: 'templates/availability-new.html',

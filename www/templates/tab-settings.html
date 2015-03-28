@@ -10,7 +10,7 @@
         <i class="icon ion-social-twitter"></i>
         Sign in with Twitter
       </ion-item>
-      <button class="button Button" ng-hide="!currentUser()" ng-click="signOut()">Sign out</button>
+      <button class="button Button" ng-hide="!currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
     </ion-list>
 
       <button class="button" ng-hide="!currentUser()" ui-sref="tab.availabilities">Availabilities</button>
