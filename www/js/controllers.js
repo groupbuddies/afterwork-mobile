@@ -15,6 +15,10 @@
           });
       };
 
+      $scope.isOwner = function(event) {
+        return event.owner === CurrentUser.user().id
+      }
+
       $scope.createEvent = function () {
         $state.go('tab.event-new');
       };
@@ -27,7 +31,7 @@
 
     })
 
-    .controller('EventDetailCtrl', function ($scope, $stateParams, Events, CurrentUser ) {
+    .controller('EventDetailCtrl', function ($scope, $stateParams, Events, CurrentUser) {
       $scope.event = function () {
         return Events.get($stateParams.eventId);
       };
@@ -36,11 +40,39 @@
       $scope.cancelAttend = Events.cancelAttend;
       $scope.isAttending = Events.isAttending;
       $scope.currentUser = CurrentUser.user;
+
     })
 
     .controller('EventNewCtrl', function ($scope, Events) {
       $scope.createEvent = function (event) {
         Events.create(event);
+      };
+
+      $scope.eventValid = function(form) {
+        if ( form.name.$invalid || form.location.$invalid || form.date.$invalid ) {
+          return true;
+        }
+        else{
+          return false;
+        }
+      };
+
+      $scope.validAndPristine = function(form, field) {
+        if ( form[field].$invalid && form[field].$dirty ){
+          return true;
+        }
+        else {
+          return false;
+        }
+      };
+
+      $scope.validOrPristine = function(form, field) {
+        if ( form[field].$invalid || form[field].$dirty ){
+          return true;
+        }
+        else {
+          return false;
+        }
       };
     })
 

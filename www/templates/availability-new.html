@@ -15,9 +15,7 @@
           <input name="endTime" type="time" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
         </label>
 
-        <div class="Button">
-          <button type="submit" class="Button-flat" ng-disabled="newAvailabilityForm.startTime.$invalid || newAvailabilityForm.endTime.$invalid || newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue"><span class="padding ion-plus-round"></span>Add</button>
-        </div>
+        <button type="submit" class="button button-block button-positive" ng-disabled="newAvailabilityForm.startTime.$invalid || newAvailabilityForm.endTime.$invalid || newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue"><span class="padding ion-plus-round"></span>Add</button>
 
       </form>
   </ion-content>

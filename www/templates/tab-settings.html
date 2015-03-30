@@ -11,11 +11,10 @@
         Sign in with Twitter
       </ion-item>
     </ion-list>
-    <div class="Button">
-      <button class="Button-flat" ng-hide="!currentUser()" ui-sref="tab.availabilities">Check Availability</button>
-    </div>
-    <div class="Button">
-      <button class="Button-flat" ng-hide="!currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
-    </div>
+
+      <button class="button button-block button-positive" ng-show="currentUser()" ui-sref="tab.availabilities">Check Availability</button>
+
+      <button class="button button-block button-assertive" ng-show="currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
+
   </ion-content>
 </ion-view>

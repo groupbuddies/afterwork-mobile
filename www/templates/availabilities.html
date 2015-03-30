@@ -14,16 +14,19 @@
           </div>
         </div>
 
-        <div ng-repeat="availability in ctrl.availabilities">
-          <div ng-show="availability.week_day === day">
-            <p>{{availability.start_time | date: 'shortTime'}} - {{availability.end_time | date: 'shortTime'}}</p>
-            <div class="Button" ng-click="ctrl.remove(availability)">
-              <button class="Button-delete">
-                <i class="ion-minus-round"></i>
-              </button>
+        <div class="item">
+          <div ng-repeat="availability in ctrl.availabilities">
+            <div ng-show="availability.week_day === day">
+              <p>{{availability.start_time | date: 'shortTime'}} - {{availability.end_time | date: 'shortTime'}}</p>
+              <div class="Button" ng-click="ctrl.remove(availability)">
+                <button class="Button-delete">
+                  <i class="ion-minus-round"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </ion-content>
