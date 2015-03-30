@@ -7,13 +7,9 @@ $Button-button-height-round: 50px;
 
 .Button {
   border: none;
-  padding-bottom: $Button-spacing-base;
-  padding-top: $Button-spacing-base;
+  margin-bottom: $Button-spacing-base;
+  margin-top: $Button-spacing-base;
   text-align: center;
-  text-transform: uppercase;
-  &:active{
-    background: darken($Button-background-base, 50%);
-  }
 }
 
 .Button-signOut {

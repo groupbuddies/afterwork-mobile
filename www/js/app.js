@@ -5,7 +5,8 @@
     'starter.services',
     'starter.constants',
     'LocalStorageModule',
-    'ngCordova'
+    'ngCordova',
+    'ngMessages'
   ])
 
   .run(function($ionicPlatform) {

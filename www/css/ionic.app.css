@@ -7622,12 +7622,9 @@ button {
 
 .Button {
   border: none;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  text-align: center;
-  text-transform: uppercase; }
-  .Button:active {
-    background: #01112c; }
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center; }
 
 .Button-signOut {
   background: #F44336;
@@ -7656,3 +7653,6 @@ button {
 
 .BaseLayout {
   text-align: center; }
+
+.Error {
+  border-bottom: 2px solid #F44336; }
