@@ -1,0 +1,12 @@
+$InfoMessage-font-weight: $Theme-font-weight-bold;
+$InfoMessage-spacing-base: $Theme-spacing-base;
+$InfoMessage-text-mustLogin: $Theme-red;
+
+.InfoMessage{
+  font-weight: $InfoMessage-font-weight;
+  padding: $InfoMessage-spacing-base;
+}
+
+.InfoMessage-mustLogin{
+  color: $InfoMessage-text-mustLogin;
+}

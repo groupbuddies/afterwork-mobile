@@ -24,16 +24,16 @@
       };
     })
 
-    .controller('EventDetailCtrl', function ($scope, $stateParams, Events) {
+    .controller('EventDetailCtrl', function ($scope, $stateParams, Events, CurrentUser ) {
       $scope.event = function () {
         return Events.get($stateParams.eventId);
       };
 
       $scope.attend = Events.attend;
-
       $scope.cancelAttend = Events.cancelAttend;
-
       $scope.isAttending = Events.isAttending;
+      $scope.currentUser = CurrentUser.user;
+
     })
 
     .controller('EventNewCtrl', function ($scope, Events) {

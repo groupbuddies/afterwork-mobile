@@ -7656,3 +7656,10 @@ button {
 
 .Error {
   border-bottom: 2px solid #F44336; }
+
+.InfoMessage {
+  font-weight: 700;
+  padding: 10px; }
+
+.InfoMessage-mustLogin {
+  color: #F44336; }
