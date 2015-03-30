@@ -1,0 +1,46 @@
+$Button-background-base: $Theme-blue;
+$Button-background-create: $Theme-green;
+$Button-background-delete: $Theme-red;
+$Button-color-text: $Theme-white;
+$Button-spacing-base: $Theme-spacing-base;
+$Button-button-height-round: 50px;
+
+.Button {
+  border: none;
+  padding-bottom: $Button-spacing-base;
+  padding-top: $Button-spacing-base;
+  text-align: center;
+  text-transform: uppercase;
+  &:active{
+    background: darken($Button-background-base, 50%);
+  }
+}
+
+.Button-signOut {
+  background: $Button-background-delete;
+  color: $Button-color-text;
+  width: 100%;
+}
+
+.Button-create {
+  background: $Button-background-create;
+  border-radius: 50%;
+  color: $Button-color-text;
+  min-height: $Button-button-height-round;
+  min-width: $Button-button-height-round;
+}
+
+.Button-delete {
+  background: $Button-background-delete;
+  border-radius: 50%;
+  color: $Button-color-text;
+  min-height: $Button-button-height-round;
+  min-width: $Button-button-height-round;
+}
+
+.Button-flat {
+  background: $Button-background-base;
+  color: $Button-color-text;
+  padding: $Button-spacing-base;
+  width: 50%;
+}

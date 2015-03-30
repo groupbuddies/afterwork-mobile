@@ -1,5 +1,13 @@
 {
   "name": "afterwork",
   "app_id": "com.groupbuddies.afterwork",
-  "gulpStartupTasks": ["constants"]
+  "gulpStartupTasks": [
+    "constants",
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

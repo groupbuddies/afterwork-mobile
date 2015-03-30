@@ -1,0 +1,37 @@
+$Theme-spacing-base: 10px;
+$Theme-spacing-large: 20px;
+
+$Theme-fontSize-text-base: 18px;
+
+$Theme-red: #F44336;
+$Theme-yellow: #FFEB3B;
+$Theme-grey: #78909C;
+$Theme-green: #009688;
+$Theme-white: #fff;
+$Theme-blue: #337AF9;
+
+*,
+*::after,
+*::before{
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+html{
+  font-family: "azo-sans-web",sans-serif;
+  font-size: $Theme-fontSize-text-base;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+.activated{
+  opacity: 0.7;
+}
+
+button {
+  border :none;
+}

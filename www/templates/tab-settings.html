@@ -1,5 +1,5 @@
 <ion-view view-title="Settings">
-  <ion-content>
+  <ion-content class="BaseLayout">
     <ion-list>
       <ion-item ng-show="currentUser()" class="item-icon-left">
         <i class="icon ion-person"></i>
@@ -10,9 +10,12 @@
         <i class="icon ion-social-twitter"></i>
         Sign in with Twitter
       </ion-item>
-      <button class="button Button" ng-hide="!currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
     </ion-list>
-
-      <button class="button" ng-hide="!currentUser()" ui-sref="tab.availabilities">Availabilities</button>
+    <div class="Button">
+      <button class="Button-flat" ng-hide="!currentUser()" ui-sref="tab.availabilities">Check Availability</button>
+    </div>
+    <div class="Button">
+      <button class="Button-flat" ng-hide="!currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
+    </div>
   </ion-content>
 </ion-view>

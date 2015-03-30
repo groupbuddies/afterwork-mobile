@@ -1,16 +1,31 @@
 <ion-view view-title="{{event().name}}">
-  <ion-content class="padding">
+  <ion-content class="padding BaseLayout">
     <h1>
-      {{event().hashtag}}
+      {{event().name}}
     </h1>
     <p>
       {{event().description}}
     </p>
-
+    <p>
+      {{event().hashtag}}
+    </p>
+    <p>
+      {{event().location}}
+    </p>
     <div ng-show="!isAttending(event().id)">
-      <button class="button" ng-click="attend(event().id)">Attending</button>
+    <div class="Button">
+      <button class="Button-create" ng-click="attend(event().id)">
+        <i class="ion-checkmark-round"></i>
+      </button>
+    </div>
     </div>
     <div ng-show="isAttending(event().id)">
-      <button class="button" ng-click="cancelAttend(event().id)">Cancel Attending</button>
+      <div class="Button">
+        <button class="Button-delete" ng-click="cancelAttend(event().id)">
+        <i class="ion-close-round"></i>
+        </button>
+      </div>
+
     </div>
+  </ion-content>
 </ion-view>
