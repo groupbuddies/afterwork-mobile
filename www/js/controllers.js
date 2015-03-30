@@ -3,7 +3,7 @@
 
   angular.module('starter.controllers', [])
 
-    .controller('EventsCtrl', function ($scope, Events, events, $state) {
+    .controller('EventsCtrl', function ($scope, Events, events, $state, CurrentUser) {
       $scope.events = events;
       $scope.onRefresh = function() {
         Events.onRefresh()
@@ -22,6 +22,9 @@
       $scope.remove = function (event) {
         Events.remove(event);
       };
+
+      $scope.currentUser = CurrentUser.user;
+
     })
 
     .controller('EventDetailCtrl', function ($scope, $stateParams, Events, CurrentUser ) {
@@ -33,7 +36,6 @@
       $scope.cancelAttend = Events.cancelAttend;
       $scope.isAttending = Events.isAttending;
       $scope.currentUser = CurrentUser.user;
-
     })
 
     .controller('EventNewCtrl', function ($scope, Events) {

@@ -1,8 +1,10 @@
 <ion-view view-title="Events">
   <ion-nav-buttons side="primary">
-    <button class="button" ng-click="createEvent()">
-      Create event
-    </button>
+    <div ng-show="currentUser()">
+      <button class="button" ng-click="createEvent()">
+        Create event
+      </button>
+    </div>
   </ion-nav-buttons>
   <ion-content ng-controler="EventsCtrl">
     <ion-refresher
