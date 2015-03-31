@@ -14,8 +14,11 @@
             $scope.$broadcast('scroll.refreshComplete');
           });
       };
-
       $scope.isOwner = function(event) {
+        if (CurrentUser.user() === undefined){
+          return false;
+        }
+
         return event.owner === CurrentUser.user().id;
       };
 
@@ -57,15 +60,6 @@
 
       $scope.validAndPristine = function(form, field) {
         if ( form[field].$invalid && form[field].$dirty ){
-          return true;
-        }
-        else {
-          return false;
-        }
-      };
-
-      $scope.validOrPristine = function(form, field) {
-        if ( form[field].$invalid || form[field].$dirty ){
           return true;
         }
         else {
