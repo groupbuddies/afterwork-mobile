@@ -1,5 +1,5 @@
-<div class="modal">
-  <ion-content>
+<ion-view view-title="Creating event">
+  <ion-content >
     <form name="newEventForm" ng-submit="createEvent(event)">
       <div class="list">
         <label class="item item-input item-floating-label"
@@ -55,7 +55,11 @@
                  ng-model="event.interests">
         </label>
 
-        <button ng-disabled="eventValid(newEventForm)"  type="submit" class="button button-block button-positive">Create Event</button>
-      </form>
+        <button ng-disabled="eventValid(newEventForm)"
+                type="submit"
+                class="button button-block button-positive">Create Event
+        </button>
+      </div>
+    </form>
   </ion-content>
-</div>
+</ion-view>

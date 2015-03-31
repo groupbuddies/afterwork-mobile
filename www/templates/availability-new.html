@@ -1,22 +1,27 @@
-<div class="modal">
-  <ion-content>
-    <form name="newAvailabilityForm" ng-submit="createAvailability(availability)">
-      <div class="list">
+<ion-content>
+  <form name="newAvailabilityForm" ng-submit="createAvailability(availability)">
+    <div class="list">
+      <span class="error" ng-show="isDateValid(newAvailabilityForm)">Check your dates</span>
 
-        <span class="error" ng-show="newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue">Check your dates</span>
+      <label class="item item-input">
+        <span class="input-label">Start Time</span>
+        <input name="startTime"
+               type="time"
+               placeholder="start tme"
+               ng-model="availability.startTime"
+               required>
+      </label>
 
-        <label class="item item-input">
-          <span class="input-label">Start Time</span>
-          <input name="startTime" type="time" placeholder="start tme" ng-model="availability.startTime" required>
-        </label>
+      <label class="item item-input">
+        <span class="input-label">End time</span>
+        <input name="endTime" type="time" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
+      </label>
 
-        <label class="item item-input">
-          <span class="input-label">End time</span>
-          <input name="endTime" type="time" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
-        </label>
+      <button type="submit"
+              class="button button-block button-positive"
+              ng-disabled="!isDateValid(newAvailabilityForm)">
+        <span class="padding ion-plus-round"></span>Add
+      </button>
 
-        <button type="submit" class="button button-block button-positive" ng-disabled="newAvailabilityForm.startTime.$invalid || newAvailabilityForm.endTime.$invalid || newAvailabilityForm.endTime.$modelValue <= newAvailabilityForm.startTime.$modelValue"><span class="padding ion-plus-round"></span>Add</button>
-
-      </form>
-  </ion-content>
-</div>
+    </form>
+</ion-content>

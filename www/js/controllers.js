@@ -16,8 +16,8 @@
       };
 
       $scope.isOwner = function(event) {
-        return event.owner === CurrentUser.user().id
-      }
+        return event.owner === CurrentUser.user().id;
+      };
 
       $scope.createEvent = function () {
         $state.go('tab.event-new');
@@ -28,7 +28,6 @@
       };
 
       $scope.currentUser = CurrentUser.user;
-
     })
 
     .controller('EventDetailCtrl', function ($scope, $stateParams, Events, CurrentUser) {
@@ -40,7 +39,6 @@
       $scope.cancelAttend = Events.cancelAttend;
       $scope.isAttending = Events.isAttending;
       $scope.currentUser = CurrentUser.user;
-
     })
 
     .controller('EventNewCtrl', function ($scope, Events) {
@@ -111,9 +109,12 @@
     })
 
     .controller('AvailabilityNewCtrl', function($scope, Availabilities, $stateParams){
-
       $scope.createAvailability = function(availability) {
         Availabilities.create(availability, $stateParams.weekDay);
+      };
+
+      $scope.isDateValid = function (form){
+        return form.endTime.$modelValue <= form.startTime.$modelValue;
       };
     });
 

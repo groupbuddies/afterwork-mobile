@@ -1,8 +1,9 @@
 <ion-view view-title="Events">
-  <ion-nav-buttons side="primary">
+  <ion-nav-buttons side="secondary">
     <div ng-show="currentUser()">
       <button class="button" ng-click="createEvent()">
-        Create event
+        <i class="ion-plus-round"></i>
+        Create
       </button>
     </div>
   </ion-nav-buttons>
@@ -12,7 +13,7 @@
       on-refresh="onRefresh()">
     </ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right"          ng-repeat="event in events"
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events"
                 type="item-text-wrap"
                 href="#/tab/events/{{event.id}}">
         <h2>{{event.name}}</h2>
