@@ -1,65 +1,7 @@
 <ion-view view-title="Creating event">
   <ion-content >
     <form name="newEventForm" ng-submit="createEvent(event)">
-      <div class="list">
-        <label class="item item-input item-floating-label"
-               ng-class="{ 'Error' : validAndPristine(newEventForm, 'name')}">
-          <span class="input-label">Name</span>
-          <input name="name"
-                 ng-minlength="3"
-                 ng-maxlength="50"
-                 type="text"
-                 placeholder="Name"
-                 ng-model="event.name"
-                 required>
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Description</span>
-          <input name="description"
-                 ng-maxlength="160"
-                 type="text"
-                 placeholder="Description"
-                 ng-model="event.description">
-        </label>
-
-        <label class="item item-input item-floating-label"
-               ng-class="{ 'Error' : validAndPristine(newEventForm, 'date')}">
-          <span class="input-label">Date</span>
-          <input name="date"
-                 type="datetime"
-                 ng-model="event.date"
-                 required>
-          </label>
-
-        <label class="item item-input item-floating-label">
-          <span class="input-label">#Hashtag</span>
-          <input name="hashtag" type="text" placeholder="hashtag" ng-model="event.hashtag">
-        </label>
-
-        <label class="item item-input item-floating-label"
-               ng-class="{ 'Error' : validAndPristine(newEventForm, 'location') }">
-          <span class="input-label">Location</span>
-          <input name="location"
-                 type="text"
-                 placeholder="location"
-                 ng-model="event.location"
-                 required>
-        </label>
-
-        <label class="item item-input item-floating-label">
-          <span class="input-label">Interests</span>
-          <input name="interests"
-                 type="text"
-                 placeholder="Javascript, Web"
-                 ng-model="event.interests">
-        </label>
-
-        <button ng-disabled="eventValid(newEventForm)"
-                type="submit"
-                class="button button-block button-positive">Create Event
-        </button>
-      </div>
+      <div aw-event-form></div>
     </form>
   </ion-content>
 </ion-view>
