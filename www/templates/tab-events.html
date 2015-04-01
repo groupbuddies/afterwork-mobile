@@ -1,30 +1,25 @@
 <ion-view view-title="Events">
   <ion-nav-buttons side="secondary">
     <div ng-show="currentUser()">
-      <button class="button" ng-click="createEvent()">
-        <i class="ion-plus-round"></i>
-        Create
-      </button>
+      <aw-create-event-button label-button="Create" icon="ion-plus-round" create="createEvent()"></div>
     </div>
   </ion-nav-buttons>
   <ion-content ng-controler="EventsCtrl">
-    <ion-refresher
-      pulling-text="Pull to refresh..."
-      on-refresh="onRefresh()">
-    </ion-refresher>
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="onRefresh()"></ion-refresher>
+
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events"
-                type="item-text-wrap"
-                href="#/tab/events/{{event.id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event.id}}">
         <h2>{{event.name}}</h2>
         <p>{{event.location}}</p>
         <p>{{event.hashtag}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-        <ion-option-button class="button-assertive"
-                           ng-click="remove(event)">
+
+        <ion-option-button class="button-assertive" ng-click="remove(event)" ng-show="currentUser()">
           Delete
         </ion-option-button>
+
       </ion-item>
     </ion-list>
+
   </ion-content>
 </ion-view>

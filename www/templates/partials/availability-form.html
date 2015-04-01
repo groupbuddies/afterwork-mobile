@@ -1,0 +1,17 @@
+<div class="list has-header">
+  <label class="item item-input">
+    <span class="input-label">Start Time</span>
+    <input name="startTime" type="time" placeholder="start tme" ng-model="availability.startTime" required>
+  </label>
+
+  <label class="item item-input">
+    <span class="input-label">End time</span>
+    <input name="endTime" type="time" placeholder="e.g. 18:30" ng-model="availability.endTime" required>
+  </label>
+
+  <span ng-show="isDateValid(newAvailabilityForm)">Check your dates</span>
+
+  <button type="submit" class="button button-block button-positive" ng-disabled="isDateValid(newAvailabilityForm)">
+    <span class="padding ion-plus-round"></span>Add
+  </button>
+</div>

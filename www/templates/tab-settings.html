@@ -12,12 +12,10 @@
       </ion-item>
     </ion-list>
 
-      <button class="button button-block button-positive"
-              ng-show="currentUser()"
-              ui-sref="tab.availabilities">Check Availability
-    </button>
-
-      <button class="button button-block button-assertive" ng-show="currentUser()" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
+    <div ng-show="currentUser()" >
+      <button class="button button-block button-positive" ui-sref="tab.availabilities">Check Availability </button>
+      <button class="button button-block button-assertive" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
+    </div>
 
   </ion-content>
 </ion-view>

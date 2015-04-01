@@ -1,0 +1,15 @@
+<div ng-show="!isAttending(event().id)">
+  <div class="Button">
+    <button class="Button-create" ng-click="attend(event().id)">
+      <i class="ion-checkmark-round"></i>
+    </button>
+  </div>
+</div>
+
+<div ng-show="isAttending(event().id)">
+  <div class="Button">
+    <button class="Button-delete" ng-click="cancelAttend(event().id)">
+      <i class="ion-close-round"></i>
+    </button>
+  </div>
+</div>

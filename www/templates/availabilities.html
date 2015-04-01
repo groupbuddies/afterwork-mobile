@@ -1,5 +1,5 @@
 <ion-view view-title="Availabilities">
-  <ion-content class="BaseLayout">
+  <ion-content>
     <div class="card" ng-repeat="day in ctrl.days">
       <div class="item item-divider">
         {{ctrl.dayNames[day - 1]}}
@@ -13,7 +13,7 @@
         <div class="item">
           <div ng-repeat="availability in ctrl.availabilities">
             <div ng-show="availability.week_day === day">
-              <p>{{availability.start_time | date: 'shortTime'}} - {{availability.end_time | date: 'shortTime'}}</p>
+              <div aw-availability-detail></div>
               <div aw-remove-availability></div>
             </div>
           </div>
