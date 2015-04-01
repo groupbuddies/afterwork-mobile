@@ -1,5 +1,8 @@
-$Error-color-text: $Theme-red;
+$Error-background-color: $Theme-red;
+$Error-text-color: $Theme-white;
 
 .Error{
-  border-bottom: 2px solid $Error-color-text;
+  text-align: center;
+  background: $Error-text-color;
+  color: $Error-text-color;
 }

@@ -7655,7 +7655,9 @@ button {
   text-align: center; }
 
 .Error {
-  border-bottom: 2px solid #F44336; }
+  text-align: center;
+  background: #fff;
+  color: #fff; }
 
 .InfoMessage {
   font-weight: 700;

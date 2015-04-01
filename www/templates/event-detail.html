@@ -5,17 +5,20 @@
         <h1>
           {{event().name}}
         </h1>
+        <hr>
         <p>
           {{event().description}}
         </p>
         <p>
           {{event().hashtag}}
         </p>
+        <hr>
         <p>
           {{event().location}}
         </p>
         <p>
-          {{event().start_date}}
+          {{event().start_date | date: 'shortDate'}}
+          {{event().start_date | date: 'shortTime'}}
         </p>
         <p>
           People attending this event
