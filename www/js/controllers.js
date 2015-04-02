@@ -77,6 +77,10 @@
         localStorage.removeItem('ls.accessToken');
         $state.go('tab.events');
       };
+
+      $scope.availabilities = function () {
+        $state.go('tab.availabilities');
+      }
     })
 
     .controller('AvailabilityCtrl', function(Availabilities) {

@@ -13,7 +13,8 @@
     </ion-list>
 
     <div ng-show="currentUser()" >
-      <button class="button button-block button-positive" ui-sref="tab.availabilities">Check Availability </button>
+      <aw-button my-class='button button-block button-positive' label-button='Check Availability' ng-click="availabilities()"> </aw-button>
+
       <button class="button button-block button-assertive" ng-click="signOut()" ui-sref="tab.events">Sign out </button>
     </div>
 

@@ -24,16 +24,15 @@ angular.module('starter.directives', [])
   }
 })
 
-.directive('awCreateEventButton', function() {
+.directive('awButton', function() {
   return {
     scope: {
-      create: '&'
+      function: '&',
+      labelButton : '@',
+      icon: '@',
+      myClass: '@'
     },
-    templateUrl: "templates/partials/create-event-button.html",
-    link : function(scope, element, attrs) {
-      scope.labelButton = attrs['labelButton'];
-      scope.icon = attrs['icon'];
-    }
+    templateUrl: "templates/partials/button.html"
   }
 })
 

@@ -7620,6 +7620,9 @@ html {
 button {
   border: none; }
 
+.center {
+  text-align: center; }
+
 .Button {
   border: none;
   margin-bottom: 10px;

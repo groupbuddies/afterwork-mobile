@@ -7,13 +7,13 @@
 
       <div class="item item-text-wrap">
         <div ng-show="!ctrl.hasAvailability(day)">
-          <div aw-add-availability></div>
+          <div aw-add-availability icon="ion-plus-round"></div>
         </div>
 
         <div class="item">
           <div ng-repeat="availability in ctrl.availabilities">
             <div ng-show="availability.week_day === day">
-              <div aw-availability-detail></div>
+              <div aw-availability-detail class="center"></div>
               <div aw-remove-availability></div>
             </div>
           </div>
